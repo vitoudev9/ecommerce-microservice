@@ -1,7 +1,7 @@
 package com.microservice.productservice.service;
 
 import com.microservice.productservice.dto.ProductRequest;
-import com.microservice.productservice.dto.ProductResposne;
+import com.microservice.productservice.dto.ProductResponse;
 import com.microservice.productservice.model.Product;
 import com.microservice.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,11 +30,11 @@ public class ProductService {
         return product.getId();
     }
 
-    public List<ProductResposne> listAllProducts() {
+    public List<ProductResponse> listAllProducts() {
 
         return productRepository.findAll().stream()
                 .map(product ->
-                        new ProductResposne(
+                        new ProductResponse(
                                 product.getId(),
                                 product.getName(),
                                 product.getDescription(),

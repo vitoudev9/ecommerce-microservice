@@ -1,9 +1,8 @@
 package com.microservice.productservice.controller;
 
 import com.microservice.productservice.dto.ProductRequest;
-import com.microservice.productservice.dto.ProductResposne;
+import com.microservice.productservice.dto.ProductResponse;
 import com.microservice.productservice.service.ProductService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +27,7 @@ public class ProductController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<ProductResposne> listAllProducts() {
+    public List<ProductResponse> listAllProducts() {
         return productService.listAllProducts();
     }
 }

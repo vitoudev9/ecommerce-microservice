@@ -7,6 +7,7 @@ import com.microservice.productservice.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
+    @Transactional
     public String createProduct(ProductRequest productRequest) {
 
         Product product = Product.builder()
@@ -30,6 +32,7 @@ public class ProductService {
         return product.getId();
     }
 
+    @Transactional(readOnly = true)
     public List<ProductResponse> listAllProducts() {
 
         return productRepository.findAll().stream()
